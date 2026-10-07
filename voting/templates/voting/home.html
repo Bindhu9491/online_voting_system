@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Voting System</title>
+</head>
+
+<body>
+
+<h1>Online Voting System</h1>
+
+<h2>Candidates</h2>
+
+{% for candidate in candidates %}
+    <p>
+        <b>{{ candidate.name }}</b>
+        - {{ candidate.party }}
+    </p>
+{% empty %}
+    <p>No candidates available.</p>
+{% endfor %}
+
+<br>
+
+<a href="/vote/">
+    <button>Vote Now</button>
+</a>
+
+<a href="/results/">
+    <button>View Results</button>
+</a>
+
+</body>
+</html>

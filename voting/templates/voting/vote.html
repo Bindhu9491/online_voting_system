@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cast Your Vote</title>
+</head>
+
+<body>
+
+<h1>Cast Your Vote</h1>
+
+{% if error %}
+    <p style="color:red;">
+        {{ error }}
+    </p>
+{% endif %}
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <label>Voter ID:</label>
+
+    <input type="text" name="voter_id" required>
+
+    <br><br>
+
+    <h3>Select Candidate</h3>
+
+    {% for candidate in candidates %}
+
+        <input
+            type="radio"
+            name="candidate"
+            value="{{ candidate.id }}"
+            required
+        >
+
+        {{ candidate.name }}
+        - {{ candidate.party }}
+
+        <br>
+
+    {% endfor %}
+
+    <br>
+
+    <button type="submit">
+        Submit Vote
+    </button>
+
+</form>
+
+</body>
+</html>

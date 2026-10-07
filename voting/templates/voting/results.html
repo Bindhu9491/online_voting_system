@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting Results</title>
+</head>
+
+<body>
+
+<h1>Voting Results</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Candidate</th>
+    <th>Party</th>
+    <th>Votes</th>
+</tr>
+
+{% for candidate in candidates %}
+
+<tr>
+    <td>{{ candidate.name }}</td>
+    <td>{{ candidate.party }}</td>
+    <td>{{ candidate.votes }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">
+    <button>Home</button>
+</a>
+
+</body>
+</html>
